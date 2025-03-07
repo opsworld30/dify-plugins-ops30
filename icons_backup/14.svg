@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C8DFF"/>
+      <stop offset="100%" stop-color="#3370FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <circle cx="100" cy="100" r="95" fill="#FFF"/>
+
+  <!-- 机器人主体 -->
+  <g transform="translate(100, 80)">
+    <!-- 机器人头部 -->
+    <rect x="-40" y="-45" width="80" height="70" rx="15" fill="url(#robotGradient)" filter="url(#glow)"/>
+
+    <!-- 机器人眼睛 -->
+    <circle cx="-15" cy="-15" r="10" fill="white"/>
+    <circle cx="15" cy="-15" r="10" fill="white"/>
+    <circle cx="-15" cy="-15" r="5" fill="#1A2E40"/>
+    <circle cx="15" cy="-15" r="5" fill="#1A2E40"/>
+
+    <!-- 机器人嘴巴 -->
+    <rect x="-20" y="10" width="40" height="5" rx="2" fill="white"/>
+
+    <!-- 机器人天线 -->
+    <line x1="0" y1="-45" x2="0" y2="-60" stroke="#5EAFED" stroke-width="3"/>
+    <circle cx="0" cy="-60" r="5" fill="#5EAFED"/>
+  </g>
+
+  <!-- 数字30标识 -->
+  <g transform="translate(100, 140)">
+    <rect x="-40" y="-25" width="80" height="50" rx="10" fill="#1A2E40"/>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#FFF">
+      <tspan>3</tspan>
+      <tspan fill="#5EAFED">0</tspan>
+    </text>
+  </g>
+</svg>

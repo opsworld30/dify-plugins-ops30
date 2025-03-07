@@ -1,0 +1,102 @@
+description:
+  human:
+    en_US: Query data from Redis database
+    zh_Hans: 从Redis数据库中查询数据
+    ja_JP: Redisデータベースからデータをクエリする
+    pt_BR: Consultar dados do banco de dados Redis
+  llm: A tool for querying data from Redis database. Supports various Redis data types and pattern matching with wildcards.
+
+identity:
+  name: redis_query
+  author: opsworld30
+  icon: icon.png
+  label:
+    en_US: Redis Query
+    zh_Hans: Redis查询
+    ja_JP: Redisクエリ
+    pt_BR: Consulta Redis
+
+parameters:
+  - name: host
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Host
+      zh_Hans: 主机地址
+      ja_JP: ホスト
+      pt_BR: Host
+    human_description:
+      en_US: Redis database host address
+      zh_Hans: Redis数据库主机地址
+      ja_JP: Redisデータベースのホストアドレス
+      pt_BR: Endereço do host do banco de dados Redis
+    llm_description: The host address of Redis database, e.g., localhost or 127.0.0.1
+
+  - name: port
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Port
+      zh_Hans: 端口
+      ja_JP: ポート
+      pt_BR: Porta
+    human_description:
+      en_US: Redis database port
+      zh_Hans: Redis数据库端口
+      ja_JP: Redisデータベースのポート
+      pt_BR: Porta do banco de dados Redis
+    llm_description: The port number of Redis database, default is 6379
+
+  - name: password
+    type: secret-input
+    required: false
+    form: llm
+    label:
+      en_US: Password
+      zh_Hans: 密码
+      ja_JP: パスワード
+      pt_BR: Senha
+    human_description:
+      en_US: Redis database password
+      zh_Hans: Redis数据库密码
+      ja_JP: Redisデータベースのパスワード
+      pt_BR: Senha do banco de dados Redis
+    llm_description: The password for Redis database authentication (optional)
+
+  - name: db
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: Database
+      zh_Hans: 数据库
+      ja_JP: データベース
+      pt_BR: Banco de dados
+    human_description:
+      en_US: Redis database number
+      zh_Hans: Redis数据库编号
+      ja_JP: Redisデータベース番号
+      pt_BR: Número do banco de dados Redis
+    llm_description: The Redis database number to connect to (optional, default is 0)
+
+  - name: key
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Key Pattern
+      zh_Hans: 键名模式
+      ja_JP: キーパターン
+      pt_BR: Padrão de Chave
+    human_description:
+      en_US: Redis key pattern (* for wildcard)
+      zh_Hans: Redis键名模式(*为通配符)
+      ja_JP: Redisキーパターン(*はワイルドカード)
+      pt_BR: Padrão de chave Redis (* para curinga)
+    llm_description: The Redis key pattern to query, supports * wildcard
+
+extra:
+  python:
+    source: tools/redis_query.py

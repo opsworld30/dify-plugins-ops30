@@ -1,0 +1,118 @@
+description:
+  human:
+    en_US: Query data from MySQL database
+    zh_Hans: 从MySQL数据库中查询数据
+    ja_JP: MySQLデータベースからデータをクエリする
+    pt_BR: Consultar dados do banco de dados MySQL
+  llm: A tool for querying data from MySQL database. Supports various SQL statements including SELECT, INSERT, UPDATE, DELETE, etc.
+
+identity:
+  name: mysql_query
+  author: opsworld30
+  icon: icon.png
+  label:
+    en_US: MySQL Query
+    zh_Hans: MySQL查询
+    ja_JP: MySQLクエリ
+    pt_BR: Consulta MySQL
+
+parameters:
+  - name: host
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Host
+      zh_Hans: 主机地址
+      ja_JP: ホスト
+      pt_BR: Host
+    human_description:
+      en_US: MySQL database host address
+      zh_Hans: MySQL数据库主机地址
+      ja_JP: MySQLデータベースのホストアドレス
+      pt_BR: Endereço do host do banco de dados MySQL
+    llm_description: The host address of MySQL database, e.g., localhost or 127.0.0.1
+
+  - name: port
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Port
+      zh_Hans: 端口
+      ja_JP: ポート
+      pt_BR: Porta
+    human_description:
+      en_US: MySQL database port
+      zh_Hans: MySQL数据库端口
+      ja_JP: MySQLデータベースのポート
+      pt_BR: Porta do banco de dados MySQL
+    llm_description: The port number of MySQL database, default is 3306
+
+  - name: database
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Database
+      zh_Hans: 数据库名
+      ja_JP: データベース名
+      pt_BR: Nome do banco de dados
+    human_description:
+      en_US: MySQL database name
+      zh_Hans: MySQL数据库名称
+      ja_JP: MySQLデータベース名
+      pt_BR: Nome do banco de dados MySQL
+    llm_description: The name of the MySQL database to connect to
+
+  - name: username
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Username
+      zh_Hans: 用户名
+      ja_JP: ユーザー名
+      pt_BR: Nome de usuário
+    human_description:
+      en_US: MySQL database username
+      zh_Hans: MySQL数据库用户名
+      ja_JP: MySQLデータベースのユーザー名
+      pt_BR: Nome de usuário do banco de dados MySQL
+    llm_description: The username for MySQL database authentication
+
+  - name: password
+    type: secret-input
+    required: true
+    form: llm
+    label:
+      en_US: Password
+      zh_Hans: 密码
+      ja_JP: パスワード
+      pt_BR: Senha
+    human_description:
+      en_US: MySQL database password
+      zh_Hans: MySQL数据库密码
+      ja_JP: MySQLデータベースのパスワード
+      pt_BR: Senha do banco de dados MySQL
+    llm_description: The password for MySQL database authentication
+
+  - name: query
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: SQL Query
+      zh_Hans: SQL查询语句
+      ja_JP: SQLクエリ
+      pt_BR: Consulta SQL
+    human_description:
+      en_US: SQL query statement
+      zh_Hans: SQL查询语句
+      ja_JP: SQL文
+      pt_BR: Declaração de consulta SQL
+    llm_description: The SQL query to execute. Can be SELECT, INSERT, UPDATE, DELETE, etc.
+
+extra:
+  python:
+    source: tools/mysql_query.py

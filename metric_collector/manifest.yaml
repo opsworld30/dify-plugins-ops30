@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: opsworld30
+name: metric_collector
+label:
+  en_US: SSH Metrics Collector
+  ja_JP: SSHメトリクスコレクター
+  zh_Hans: SSH指标采集器
+  pt_BR: Coletor de Métricas SSH
+description:
+  en_US: Collect and monitor system metrics from remote servers via SSH connections
+  ja_JP: SSH接続を介してリモートサーバーからシステムメトリクスを収集・監視する
+  zh_Hans: 通过SSH连接收集和监控远程服务器的系统指标
+  pt_BR: Coletar e monitorar métricas do sistema de servidores remotos via conexões SSH
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/metric_collector.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-03-06T21:43:06.446431+08:00
+privacy: PRIVACY.md
+verified: false

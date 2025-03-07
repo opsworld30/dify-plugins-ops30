@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A7FFCE"/>
+      <stop offset="100%" stop-color="#5EED9E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <circle cx="100" cy="100" r="95" fill="#E6FFF0"/>
+
+  <!-- 机器人 -->
+  <g transform="translate(100, 75)">
+    <!-- 机器人头部 -->
+    <rect x="-40" y="-40" width="80" height="65" rx="20" fill="url(#greenGradient)" stroke="#4CAF50" stroke-width="3"/>
+
+    <!-- 机器人眼睛 -->
+    <ellipse cx="-15" cy="-15" rx="12" ry="15" fill="white" stroke="#4CAF50" stroke-width="2"/>
+    <ellipse cx="15" cy="-15" rx="12" ry="15" fill="white" stroke="#4CAF50" stroke-width="2"/>
+    <ellipse cx="-15" cy="-15" rx="5" ry="7" fill="#333333"/>
+    <ellipse cx="15" cy="-15" rx="5" ry="7" fill="#333333"/>
+    <circle cx="-12" cy="-18" r="2" fill="white"/>
+    <circle cx="18" cy="-18" r="2" fill="white"/>
+
+    <!-- 机器人嘴巴 -->
+    <path d="M-15,15 Q0,25 15,15" stroke="#4CAF50" stroke-width="3" fill="none"/>
+
+    <!-- 机器人叶子天线 -->
+    <path d="M0,-40 C-5,-50 -10,-45 -5,-55 C0,-60 5,-55 0,-50 C5,-45 10,-50 5,-40 Z" fill="#4CAF50"/>
+  </g>
+
+  <!-- 数字30标识 -->
+  <g transform="translate(100, 140)">
+    <rect x="-35" y="-22" width="70" height="45" rx="10" fill="#4CAF50"/>
+    <text x="0" y="10" font-family="Comic Sans MS, cursive" font-size="35" font-weight="bold" text-anchor="middle" fill="white">30</text>
+  </g>
+
+  <!-- 小花装饰 -->
+  <circle cx="160" cy="40" r="10" fill="#FFEB3B"/>
+  <circle cx="160" cy="40" r="5" fill="#FFC107"/>
+</svg>

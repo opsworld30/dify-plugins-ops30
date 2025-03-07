@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="robotGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C27B0"/>
+      <stop offset="100%" stop-color="#4A148C"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="200" height="200" fill="#F3E5F5"/>
+
+  <g transform="translate(100, 80)">
+    <rect x="-40" y="-50" width="80" height="80" rx="20" fill="url(#robotGradient3)" stroke="#4A148C" stroke-width="3"/>
+
+    <rect x="-25" y="-30" width="15" height="25" rx="5" fill="white" stroke="#4A148C" stroke-width="2"/>
+    <rect x="10" y="-30" width="15" height="25" rx="5" fill="white" stroke="#4A148C" stroke-width="2"/>
+    <rect x="-20" y="-25" width="5" height="15" fill="#4A148C"/>
+    <rect x="15" y="-25" width="5" height="15" fill="#4A148C"/>
+
+    <path d="M-20,10 L20,10" stroke="white" stroke-width="5" stroke-linecap="round"/>
+
+    <circle cx="-30" cy="-40" r="5" fill="#E1BEE7"/>
+    <circle cx="30" cy="-40" r="5" fill="#E1BEE7"/>
+  </g>
+
+  <g transform="translate(100, 140)">
+    <rect x="-35" y="-22" width="70" height="45" rx="10" fill="#4A148C"/>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="35" font-weight="bold" text-anchor="middle" fill="white">30</text>
+  </g>
+</svg>

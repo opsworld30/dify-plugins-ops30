@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A7D7FF"/>
+      <stop offset="100%" stop-color="#5EAFED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <circle cx="100" cy="100" r="95" fill="#E6F4FF"/>
+
+  <!-- 机器人 -->
+  <g transform="translate(100, 80)">
+    <!-- 机器人头部 -->
+    <rect x="-40" y="-45" width="80" height="70" rx="15" fill="url(#blueGradient)" stroke="#4C8DFF" stroke-width="3"/>
+
+    <!-- 机器人眼睛 -->
+    <circle cx="-15" cy="-20" r="12" fill="white" stroke="#4C8DFF" stroke-width="2"/>
+    <circle cx="15" cy="-20" r="12" fill="white" stroke="#4C8DFF" stroke-width="2"/>
+    <circle cx="-15" cy="-20" r="6" fill="#333333"/>
+    <circle cx="15" cy="-20" r="6" fill="#333333"/>
+    <circle cx="-12" cy="-23" r="2" fill="white"/>
+    <circle cx="18" cy="-23" r="2" fill="white"/>
+
+    <!-- 机器人嘴巴 -->
+    <path d="M-15,10 Q0,20 15,10" stroke="#4C8DFF" stroke-width="3" fill="none"/>
+
+    <!-- 机器人天线 -->
+    <line x1="-10" y1="-45" x2="-10" y2="-55" stroke="#4C8DFF" stroke-width="3"/>
+    <circle cx="-10" cy="-58" r="5" fill="#4C8DFF"/>
+    <line x1="10" y1="-45" x2="10" y2="-55" stroke="#4C8DFF" stroke-width="3"/>
+    <circle cx="10" cy="-58" r="5" fill="#4C8DFF"/>
+  </g>
+
+  <!-- 数字30标识 -->
+  <g transform="translate(100, 140)">
+    <rect x="-35" y="-22" width="70" height="45" rx="10" fill="#4C8DFF"/>
+    <text x="0" y="10" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="35" font-weight="bold" text-anchor="middle" fill="white">30</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+identity:
+  author: opsworld30
+  name: dbtools
+  label:
+    en_US: Database Tools
+    zh_Hans: 数据库工具
+    ja_JP: データベースツール
+    pt_BR: Ferramentas de Banco de Dados
+  description:
+    en_US: Database query tools for MySQL and Redis databases
+    zh_Hans: MySQL和Redis数据库的查询工具
+    ja_JP: MySQLとRedisデータベースのクエリツール
+    pt_BR: Ferramentas de consulta para bancos de dados MySQL e Redis
+  icon: icon.svg
+  tags:
+    - business
+    - productivity
+    - utilities
+tools:
+  - tools/mysql_query.yaml
+  - tools/redis_query.yaml
+extra:
+  python:
+    source: provider/dbtools.py

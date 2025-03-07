@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0E0"/>
+      <stop offset="100%" stop-color="#9E9E9E"/>
+    </linearGradient>
+    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#BDBDBD"/>
+      <rect width="9" height="9" fill="#E0E0E0"/>
+    </pattern>
+  </defs>
+
+  <!-- 背景 -->
+  <circle cx="100" cy="100" r="95" fill="#F5F5F5"/>
+
+  <!-- 机器人 -->
+  <g transform="translate(100, 80)">
+    <!-- 机器人头部 -->
+    <rect x="-40" y="-45" width="80" height="70" rx="5" fill="url(#metalGradient)" stroke="#616161" stroke-width="3"/>
+    <rect x="-30" y="-35" width="60" height="20" rx="2" fill="url(#grid)" stroke="#616161" stroke-width="1"/>
+
+    <!-- 机器人眼睛 -->
+    <rect x="-25" y="-10" width="15" height="10" rx="2" fill="#4CAF50" stroke="#616161" stroke-width="1"/>
+    <rect x="10" y="-10" width="15" height="10" rx="2" fill="#4CAF50" stroke="#616161" stroke-width="1"/>
+
+    <!-- 机器人嘴巴 -->
+    <rect x="-20" y="10" width="40" height="5" rx="2" fill="#616161"/>
+    <line x1="-15" y1="12.5" x2="15" y2="12.5" stroke="#4CAF50" stroke-width="1" stroke-dasharray="2,2"/>
+
+    <!-- 机器人螺丝和细节 -->
+    <circle cx="-35" cy="-40" r="3" fill="#616161"/>
+    <circle cx="35" cy="-40" r="3" fill="#616161"/>
+    <circle cx="-35" cy="20" r="3" fill="#616161"/>
+    <circle cx="35" cy="20" r="3" fill="#616161"/>
+
+    <!-- 机器人天线 -->
+    <line x1="0" y1="-45" x2="0" y2="-55" stroke="#616161" stroke-width="3"/>
+    <circle cx="0" cy="-58" r="5" fill="#4CAF50"/>
+  </g>
+
+  <!-- 数字30标识 -->
+  <g transform="translate(100, 140)">
+    <rect x="-35" y="-22" width="70" height="45" rx="5" fill="#616161"/>
+    <text x="0" y="10" font-family="Courier New, monospace" font-size="35" font-weight="bold" text-anchor="middle" fill="#4CAF50">30</text>
+  </g>
+</svg>

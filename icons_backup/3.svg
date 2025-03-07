@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D7A7FF"/>
+      <stop offset="100%" stop-color="#9D5EED"/>
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="200" height="200" fill="#2D1B4E"/>
+
+  <!-- 星星背景 -->
+  <circle cx="30" cy="30" r="1" fill="white"/>
+  <circle cx="50" cy="60" r="1.5" fill="white"/>
+  <circle cx="150" cy="40" r="1" fill="white"/>
+  <circle cx="170" cy="70" r="1.5" fill="white"/>
+  <circle cx="40" cy="150" r="1" fill="white"/>
+  <circle cx="160" cy="160" r="1.5" fill="white"/>
+
+  <!-- 发光星星 -->
+  <circle cx="120" cy="30" r="3" fill="white"/>
+  <circle cx="120" cy="30" r="6" fill="url(#starGlow)" opacity="0.7"/>
+  <circle cx="60" cy="170" r="3" fill="white"/>
+  <circle cx="60" cy="170" r="6" fill="url(#starGlow)" opacity="0.7"/>
+
+  <!-- 机器人 -->
+  <g transform="translate(100, 80)">
+    <!-- 机器人头部 -->
+    <rect x="-40" y="-45" width="80" height="70" rx="15" fill="url(#purpleGradient)" stroke="#7B1FA2" stroke-width="3"/>
+
+    <!-- 机器人眼睛 -->
+    <circle cx="-15" cy="-15" r="12" fill="#2D1B4E" stroke="#7B1FA2" stroke-width="2"/>
+    <circle cx="15" cy="-15" r="12" fill="#2D1B4E" stroke="#7B1FA2" stroke-width="2"/>
+    <circle cx="-15" cy="-15" r="5" fill="#FFEB3B"/>
+    <circle cx="15" cy="-15" r="5" fill="#FFEB3B"/>
+
+    <!-- 机器人嘴巴 -->
+    <path d="M-10,10 Q0,20 10,10" stroke="#7B1FA2" stroke-width="3" fill="none"/>
+
+    <!-- 机器人天线 -->
+    <line x1="0" y1="-45" x2="0" y2="-55" stroke="#7B1FA2" stroke-width="3"/>
+    <path d="M-5,-58 L0,-65 L5,-58 Z" fill="#FFEB3B"/>
+  </g>
+
+  <!-- 数字30标识 -->
+  <g transform="translate(100, 140)">
+    <rect x="-35" y="-22" width="70" height="45" rx="10" fill="#7B1FA2"/>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="35" font-weight="bold" text-anchor="middle" fill="#FFEB3B">30</text>
+  </g>
+</svg>

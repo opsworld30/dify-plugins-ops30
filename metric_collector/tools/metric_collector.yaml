@@ -1,0 +1,163 @@
+identity:
+  name: metric_term
+  author: opsworld30
+  label:
+    en_US: SSH Metrics Collector
+    zh_Hans: SSH指标采集器
+    pt_BR: Coletor de Métricas SSH
+    ja_JP: SSHメトリクスコレクター
+description:
+  human:
+    en_US: Collect and monitor system metrics from remote servers via SSH connections
+    zh_Hans: 通过SSH连接收集和监控远程服务器的系统指标
+    pt_BR: Coletar e monitorar métricas do sistema de servidores remotos via conexões SSH
+    ja_JP: SSH接続を介してリモートサーバーからシステムメトリクスを収集・監視する
+  llm: This tool connects to remote servers using SSH to collect and monitor various system metrics including CPU, memory, disk usage, network traffic, and process information in real-time.
+parameters:
+  - name: host
+    type: string
+    required: true
+    label:
+      en_US: Server IP/Hostname
+      zh_Hans: 服务器IP/主机名
+      pt_BR: IP/Nome do Servidor
+      ja_JP: サーバーIP/ホスト名
+    human_description:
+      en_US: IP address or hostname of the server to connect to
+      zh_Hans: 要连接的服务器IP地址或主机名
+      pt_BR: Endereço IP ou nome do servidor para conectar
+      ja_JP: 接続するサーバーのIPアドレスまたはホスト名
+    form: llm
+  - name: port
+    type: number
+    required: true
+    default: 22
+    label:
+      en_US: SSH Port
+      zh_Hans: SSH端口
+      pt_BR: Porta SSH
+      ja_JP: SSHポート
+    human_description:
+      en_US: SSH port number (default:22)
+      zh_Hans: SSH端口号(默认:22)
+      pt_BR: Número da porta SSH (padrão:22)
+      ja_JP: SSHポート番号(デフォルト:22)
+    form: llm
+  - name: username
+    type: string
+    required: true
+    label:
+      en_US: Username
+      zh_Hans: 用户名
+      pt_BR: Nome de Usuário
+      ja_JP: ユーザー名
+    human_description:
+      en_US: SSH username for authentication
+      zh_Hans: 用于SSH认证的用户名
+      pt_BR: Nome de usuário SSH para autenticação
+      ja_JP: 認証用のSSHユーザー名
+    form: llm
+  - name: password
+    type: secret-input
+    required: true
+    label:
+      en_US: Password
+      zh_Hans: 密码
+      pt_BR: Senha
+      ja_JP: パスワード
+    human_description:
+      en_US: SSH password for authentication
+      zh_Hans: 用于SSH认证的密码
+      pt_BR: Senha SSH para autenticação
+      ja_JP: 認証用のSSHパスワード
+    form: llm
+  - name: metric_type
+    type: select
+    required: true
+    options:
+      - label: 
+          en_US: All Metrics
+          zh_Hans: 所有指标
+          pt_BR: Todas as Métricas
+          ja_JP: すべてのメトリクス
+        value: all
+      - label: 
+          en_US: CPU Usage
+          zh_Hans: CPU使用率
+          pt_BR: Uso de CPU
+          ja_JP: CPU使用率
+        value: cpu
+      - label: 
+          en_US: Memory Usage
+          zh_Hans: 内存使用率
+          pt_BR: Uso de Memória
+          ja_JP: メモリ使用率
+        value: memory
+      - label: 
+          en_US: Disk Usage
+          zh_Hans: 磁盘使用率
+          pt_BR: Uso de Disco
+          ja_JP: ディスク使用率
+        value: disk
+      - label: 
+          en_US: Network Traffic
+          zh_Hans: 网络流量
+          pt_BR: Tráfego de Rede
+          ja_JP: ネットワークトラフィック
+        value: network
+      - label: 
+          en_US: Process Information
+          zh_Hans: 进程信息
+          pt_BR: Informações de Processo
+          ja_JP: プロセス情報
+        value: process
+    default: all
+    label:
+      en_US: Metric Type
+      zh_Hans: 指标类型
+      pt_BR: Tipo de Métrica
+      ja_JP: メトリクスタイプ
+    human_description:
+      en_US: Type of metrics to collect
+      zh_Hans: 要收集的指标类型
+      pt_BR: Tipo de métricas a serem coletadas
+      ja_JP: 収集するメトリクスのタイプ
+    form: llm
+  - name: output_format
+    type: select
+    required: false
+    default: text
+    options:
+      - label: 
+          en_US: Text
+          zh_Hans: 文本格式
+          pt_BR: Texto
+          ja_JP: テキスト
+        value: text
+      - label: 
+          en_US: JSON
+          zh_Hans: JSON格式
+          pt_BR: JSON
+          ja_JP: JSON
+        value: json
+    label:
+      en_US: Output Format
+      zh_Hans: 输出格式
+      pt_BR: Formato de Saída
+      ja_JP: 出力フォーマット
+    description:
+      en_US: >
+        Format of the output data. 
+        'text' provides a plain text output,
+        'json' provides a structured JSON output suitable for programmatic processing.
+      zh_Hans: >
+        输出数据的格式。
+        'text' 提供纯文本输出，
+        'json' 提供结构化的JSON输出,适合程序处理。
+    human_description:
+      en_US: Choose the format of the output data (text or JSON)
+      zh_Hans: 选择输出数据的格式(文本或JSON)
+    form: llm
+extra:
+  python:
+    source: tools/metric_collector.py
