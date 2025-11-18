@@ -16,7 +16,6 @@ class LarkCardTool(Tool):
     RETRY_MIN_WAIT = 4
     RETRY_MAX_WAIT = 10
 
-    # Color mapping for card types
     COLOR_MAP = {
         "info": "blue",
         "warning": "orange",
@@ -25,24 +24,19 @@ class LarkCardTool(Tool):
     }
 
     def _get_env_var(self, env_var_name: str) -> str:
-        """Get value from environment variable"""
         value = os.getenv(env_var_name, '')
         if not value:
             raise ValueError(f"Environment variable {env_var_name} is not set")
         return value
 
     def _get_webhook_url(self, webhook: str) -> str:
-        """Get full webhook URL from either full URL or key-only format."""
-        # Handle environment variable
         if webhook.startswith('${') and webhook.endswith('}'):
             env_var = webhook[2:-1]
             webhook = self._get_env_var(env_var)
 
-        # Return if it's already a full URL
         if webhook.startswith('http'):
             return webhook
 
-        # Extract webhook key and ensure it's not empty
         webhook_key = webhook.split('/hook/')[-1].strip('/')
         if not webhook_key:
             raise ValueError("Webhook key cannot be empty")
@@ -50,7 +44,6 @@ class LarkCardTool(Tool):
         return f"{self.WEBHOOK_BASE_URL}{webhook_key}"
 
     def _send_request(self, webhook: str, payload: dict) -> tuple[bool, str]:
-        """Send request to Lark bot"""
         try:
             webhook_url = self._get_webhook_url(webhook)
             response = requests.post(
@@ -60,11 +53,9 @@ class LarkCardTool(Tool):
             )
             result = response.json()
             
-            # Check HTTP status code
             if response.status_code != 200:
                 return False, f"HTTP error: {response.status_code}, URL: {webhook_url}"
                 
-            # Check business status code
             if result.get('code') != 0:
                 error_msg = result.get('msg', 'Unknown error')
                 if error_msg == 'Key Words Not Found':
@@ -90,8 +81,6 @@ class LarkCardTool(Tool):
             card_type: str = "info",
             show_time: bool = True
     ) -> dict:
-        """Build card message payload"""
-        # Build basic card structure
         card = {
             "header": {
                 "template": self.COLOR_MAP.get(card_type, "blue"),
@@ -106,21 +95,18 @@ class LarkCardTool(Tool):
             }
         }
 
-        # Split content by lines and create elements
         lines = card_content.split('\n')
         for line in lines:
-            if line.strip():  # Skip empty lines
+            if line.strip():
                 if line.startswith('- '):
-                    # Handle list item with indentation
                     card["elements"].append({
                         "tag": "div",
                         "text": {
-                            "content": "  • " + line[2:],  # Replace "- " with "  • "
+                            "content": "  • " + line[2:],
                             "tag": "lark_md"
                         }
                     })
                 else:
-                    # Normal line
                     card["elements"].append({
                         "tag": "div",
                         "text": {
@@ -129,14 +115,11 @@ class LarkCardTool(Tool):
                         }
                     })
         
-        # Add timestamp if requested
         if show_time:
-            # Add a divider line
             card["elements"].append({
                 "tag": "hr"
             })
             
-            # Add timestamp
             current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             card["elements"].append({
                 "tag": "note",
@@ -160,7 +143,6 @@ class LarkCardTool(Tool):
         )
     )
     def _send_card_message(self, webhook: str, payload: dict) -> Generator[ToolInvokeMessage, None, None]:
-        """Send card message with retry mechanism"""
         try:
             success, error = self._send_request(webhook, payload)
             if not success:
@@ -172,7 +154,6 @@ class LarkCardTool(Tool):
             yield self.create_text_message(text=f"Message sending failed: {str(e)}")
 
     def _validate_parameter(self, name: str, value: str | None) -> None:
-        """Validate a required parameter"""
         if not value or not str(value).strip():
             raise ValueError(f"Run failed: tool parameter {name} not found in tool config")
 
@@ -180,9 +161,7 @@ class LarkCardTool(Tool):
             self,
             tool_parameters: Dict[str, Any],
     ) -> Generator[ToolInvokeMessage, None, None]:
-        """Invoke the tool with the given parameters."""
         try:
-            # Get and validate required parameters
             webhook = tool_parameters.get('webhook')
             card_content = tool_parameters.get('card_content')
             title = tool_parameters.get('title', '')
@@ -192,7 +171,6 @@ class LarkCardTool(Tool):
             for param_name, param_value in [('webhook', webhook), ('card_content', card_content)]:
                 self._validate_parameter(param_name, param_value)
 
-            # Build and send card message
             payload = self._build_card_payload(
                 card_content=card_content,
                 title=title,
